@@ -52,17 +52,11 @@ with open('./day4.txt', 'r') as file:
   while len(boards) and len(calls):
     call = calls.pop(0)
     markBoards(boards, call)
-    if call == '33':
-      print('y')
     while True:
       winner = checkWinner(boards)
-      if winner is not None: #and len(boards) > 1:
+      if winner is not None:
         lastWinner = boards.pop(winner)
         lastWinnerCall = call
       else:
         break
-      print('{} {}'.format(len(boards), calls))
-    # elif winner:
-    #   loser = winner
-
   print(calculate(lastWinner, lastWinnerCall))
